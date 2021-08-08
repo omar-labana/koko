@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "Shooter web game. Built with phaser.js and webpack.",
   "main": "index.js",
-  "dependencies": {},
+  "dependencies": {
+    "phaser": "^3.55.2"
+  },
   "devDependencies": {
     "@babel/preset-env": "^7.15.0",
     "babel-eslint": "^10.1.0",
