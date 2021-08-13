@@ -1,4 +1,5 @@
-import 'phaser';
+import Phaser from 'phaser';
+
 import Entity from './Entity';
 
 class HoloShip extends Entity {
@@ -9,4 +10,4 @@ class HoloShip extends Entity {
   }
 }
 
-export default HoloShip
+export default HoloShip;

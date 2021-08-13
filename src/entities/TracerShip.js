@@ -1,4 +1,5 @@
-import 'phaser';
+import Phaser from 'phaser';
+
 import Entity from './Entity';
 
 class TracerShip extends Entity {
@@ -49,5 +50,4 @@ class TracerShip extends Entity {
   }
 }
 
-
-export default TracerShip
+export default TracerShip;

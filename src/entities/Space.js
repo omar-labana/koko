@@ -1,4 +1,4 @@
-import 'phaser';
+import Phaser from 'phaser';
 
 class Space {
   constructor(scene, key, velocityY) {
@@ -36,5 +36,4 @@ class Space {
   }
 }
 
-
-export default Space
+export default Space;

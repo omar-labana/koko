@@ -1,10 +1,11 @@
-import 'phaser';
+import Phaser from 'phaser';
+
 import Space from '../entities/Space';
 import { fetchScores, gotScores } from '../utils/scoring';
 import menuButton from '../assets/images/ui/menuButton.png';
 import menuButtonHover from '../assets/images/ui/menuButtonHover.png';
 import { appAlert } from '../utils/helpers';
-import space from '../assets/images/space.png'
+import space from '../assets/images/space.png';
 
 export default class LeadersBoardScene extends Phaser.Scene {
   constructor() {

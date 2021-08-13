@@ -1,6 +1,5 @@
 import { create } from './helpers';
 
-
 const saveScore = async (callBack, errorCallBack, user, score) => {
   const url = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/sHO7yOclRItalZudkjtg/scores';
   const data = {
@@ -19,23 +18,23 @@ const saveScore = async (callBack, errorCallBack, user, score) => {
     .then((response) => response.json())
     .then((data) => callBack(data))
     .catch((err) => errorCallBack('Error ', err));
-}
+};
 // TODO: Fix buttons logic
 const showSaved = (data) => {
   const scoreText = document.getElementById('scoreText');
   scoreText.innerHTML = data.result;
-}
+};
 
 const renderInput = () => {
   let inputDiv = document.getElementById('inputDiv');
   if (inputDiv) return;
   inputDiv = create('div');
-  inputDiv.classList.add('absolute', 'w-screen', 'h-screen', 'z-10', 'flex', 'flex-col', 'bg-black', 'items-center', 'justify-center')
+  inputDiv.classList.add('absolute', 'w-screen', 'h-screen', 'z-10', 'flex', 'flex-col', 'bg-black', 'items-center', 'justify-center');
   inputDiv.id = 'inputDiv';
   const input = create('input');
   input.type = 'text';
   input.setAttribute('placeholder', 'Your Name');
-  input.classList.add('p-3', 'my-1', 'rounded', 'text-xl')
+  input.classList.add('p-3', 'my-1', 'rounded', 'text-xl');
   const submitButton = create('button');
   submitButton.innerHTML = 'Submit';
   submitButton.addEventListener('click', () => {
@@ -52,14 +51,14 @@ const renderInput = () => {
     inputDiv.remove();
   });
 
-  submitButton.classList.add('p-3', 'bg-red-900', 'my-1', 'text-white', 'rounded', 'w-32')
-  cancelButton.classList.add('p-3', 'bg-red-900', 'my-1', 'text-white', 'rounded', 'w-32')
+  submitButton.classList.add('p-3', 'bg-red-900', 'my-1', 'text-white', 'rounded', 'w-32');
+  cancelButton.classList.add('p-3', 'bg-red-900', 'my-1', 'text-white', 'rounded', 'w-32');
 
   inputDiv.appendChild(input);
   inputDiv.appendChild(submitButton);
   inputDiv.appendChild(cancelButton);
   document.body.appendChild(inputDiv);
-}
+};
 
 const renderScore = () => {
   let scoresDiv = document.getElementById('scoresDiv');
@@ -77,7 +76,7 @@ const renderScore = () => {
 
   scoresDiv.appendChild(scoreText);
   document.body.appendChild(scoresDiv);
-}
+};
 
 const renderHealth = () => {
   let HealthDiv = document.getElementById('HealthDiv');
@@ -95,17 +94,17 @@ const renderHealth = () => {
 
   HealthDiv.appendChild(HealthText);
   document.body.appendChild(HealthDiv);
-}
+};
 
 const addPoints = (game, points) => {
   const newPoints = game.points + points;
   return newPoints;
-}
+};
 
 const renderPoints = () => {
   const scoreText = document.getElementById('scoreText');
   if (scoreText) scoreText.innerHTML = 'Score : '.concat(window.game.points.toString());
-}
+};
 
 const checkScore = () => {
   if (window.game.points >= 0) {
@@ -115,8 +114,7 @@ const checkScore = () => {
       saveScore(showSaved, 1, window.game.playerName, window.game.points);
     }
   }
-}
-
+};
 
 // TODO: Fix call back error
 const fetchScores = async (callBack, errorCallBack, scene) => {
@@ -126,7 +124,7 @@ const fetchScores = async (callBack, errorCallBack, scene) => {
     .then((response) => response.json())
     .then((data) => callBack(data, scene))
     .catch((err) => errorCallBack('Error', err));
-}
+};
 
 const renderScoreData = (scene, scoreData, yPos) => {
   const tcolor = scoreData.user === window.game.playerName ? 'yellow' : '#ffffff';
@@ -143,7 +141,7 @@ const renderScoreData = (scene, scoreData, yPos) => {
     align: 'right',
     fixedWidth: 100,
   });
-}
+};
 
 const gotScores = (data, scene) => {
   const { result } = data;
@@ -159,13 +157,12 @@ const gotScores = (data, scene) => {
       if (players.length > 9) break;
     }
   }
-}
-
-
-export {
-  saveScore, showSaved, renderInput, renderScore, renderHealth
-}
+};
 
 export {
-  addPoints, renderPoints, checkScore, fetchScores, renderScoreData, gotScores
-}
+  saveScore, showSaved, renderInput, renderScore, renderHealth,
+};
+
+export {
+  addPoints, renderPoints, checkScore, fetchScores, renderScoreData, gotScores,
+};

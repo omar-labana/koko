@@ -1,6 +1,6 @@
-import 'phaser';
-import Space from '../entities/Space'
+import Phaser from 'phaser';
 
+import Space from '../entities/Space';
 
 import playButton from '../assets/images/ui/playButton.png';
 import playButtonHover from '../assets/images/ui/playButtonHover.png';
@@ -8,7 +8,7 @@ import leadersBoardButton from '../assets/images/ui/leadersBoardButton.png';
 import leadersBoardButtonHover from '../assets/images/ui/leadersBoardButtonHover.png';
 import playerShip from '../assets/images/ui/playerShip.png';
 
-import space from '../assets/images/space.png'
+import space from '../assets/images/space.png';
 
 class Title extends Phaser.Scene {
   constructor() {
@@ -22,10 +22,7 @@ class Title extends Phaser.Scene {
     this.load.image('leadersBoardButtonHover', leadersBoardButtonHover);
     this.load.image('space', space);
     this.load.image('playerShip', playerShip);
-
   }
-
-
 
   renderTitle() {
     this.title = this.add.text(this.game.config.width * 0.5, 55, 'Welcome to koko', {
@@ -37,6 +34,7 @@ class Title extends Phaser.Scene {
     });
     this.title.setOrigin(0.5);
   }
+
   renderDesc() {
     this.title = this.add.text(this.game.config.width * 0.5, 85, 'A space shooter game with a meme flavor', {
       fontFamily: 'monospace',
@@ -61,7 +59,8 @@ class Title extends Phaser.Scene {
     const yPos = this.game.config.height * 0.5;
     this.instructions1 = this.add.text(xPos, yPos + 20, instruction1, style);
     this.instructions1.setOrigin(0.5);
-    this.instructions2 = this.add.text(xPos + this.game.config.width * 0.5, yPos + 20, instruction2, style);
+    const x = xPos + this.game.config.width * 0.5;
+    this.instructions2 = this.add.text(x, yPos + 20, instruction2, style);
     this.instructions2.setOrigin(0.5);
   }
 
@@ -126,7 +125,6 @@ class Title extends Phaser.Scene {
   }
 
   renderPlayerShip() {
-
     this.playerShip = this.add.image(
       this.game.config.width * 0.5,
       this.game.config.height * 0.5 * 1.7,
@@ -134,7 +132,6 @@ class Title extends Phaser.Scene {
     );
     this.playerShip.scale = 2.0;
   }
-
 
   create() {
     this.renderTitle();
@@ -144,9 +141,7 @@ class Title extends Phaser.Scene {
     this.renderPlayButton();
     this.renderTopPlayers();
     this.renderPlayerShip();
-    this.renderBackground()
-
-
+    this.renderBackground();
   }
 }
-export default Title
+export default Title;

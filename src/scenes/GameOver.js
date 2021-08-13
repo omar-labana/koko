@@ -1,4 +1,5 @@
-import 'phaser';
+import Phaser from 'phaser';
+
 import SkyLayer from '../entities/Space';
 import { checkScore } from '../utils/scoring';
 import restartButton from '../assets/images/ui/restartButton.png';

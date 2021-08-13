@@ -1,11 +1,12 @@
-import 'phaser';
+import Phaser from 'phaser';
+
 import Entity from './Entity';
 import PlayerLaser from './PlayerLaser';
 
 class PlayerShip extends Entity {
   constructor(scene, x, y, key) {
     super(scene, x, y, key, 'PlayerShip');
-    this.setData('speed', 200);
+    this.setData('speed', 600);
 
     this.setData('isShooting', false);
     this.setData('timerShootDelay', 10);
@@ -60,4 +61,4 @@ class PlayerShip extends Entity {
   }
 }
 
-export default PlayerShip
+export default PlayerShip;
