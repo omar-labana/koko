@@ -6,7 +6,7 @@ export default class Game extends Phaser.Game {
     this.points = 0;
     this.playerName = '';
     this.health = 100;
-    this.scene.start('Entry');
+    this.scene.start('Title');
   }
 }
 
