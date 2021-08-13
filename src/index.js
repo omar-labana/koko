@@ -1,11 +1,13 @@
 import 'phaser';
+import config from './config'
+export default class Game extends Phaser.Game {
+  constructor() {
+    super(config);
+    this.points = 0;
+    this.playerName = '';
+    this.health = 100;
+    this.scene.start('Entry');
+  }
+}
 
-import { SimpleScene } from './scenes/simple-scene';
-
-const gameConfig = {
-  width: 680,
-  height: 400,
-  scene: SimpleScene
-};
-
-new Phaser.Game(gameConfig);
+window.game = new Game();
