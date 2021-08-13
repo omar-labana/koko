@@ -2,12 +2,13 @@ import 'phaser';
 import Space from '../entities/Space'
 
 
-import playButton from '../../dist/assets/images/ui/playButton.png';
-import playButtonHover from '../../dist/assets/images/ui/playButtonHover.png';
-import leadersBoardButton from '../../dist/assets/images/ui/leadersBoardButton.png';
-import leadersBoardButtonHover from '../../dist/assets/images/ui/leadersBoardButtonHover.png';
-import playerShip from '../../dist/assets/images/ui/playerShip.png';
+import playButton from '../assets/images/ui/playButton.png';
+import playButtonHover from '../assets/images/ui/playButtonHover.png';
+import leadersBoardButton from '../assets/images/ui/leadersBoardButton.png';
+import leadersBoardButtonHover from '../assets/images/ui/leadersBoardButtonHover.png';
+import playerShip from '../assets/images/ui/playerShip.png';
 
+import space from '../assets/images/space.png'
 
 class Title extends Phaser.Scene {
   constructor() {
@@ -19,7 +20,7 @@ class Title extends Phaser.Scene {
     this.load.image('playButtonHover', playButtonHover);
     this.load.image('leadersBoardButton', leadersBoardButton);
     this.load.image('leadersBoardButtonHover', leadersBoardButtonHover);
-    this.load.image('space', '../../dist/assets/images/space.png');
+    this.load.image('space', space);
     this.load.image('playerShip', playerShip);
 
   }

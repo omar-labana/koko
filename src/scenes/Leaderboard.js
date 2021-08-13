@@ -1,9 +1,10 @@
 import 'phaser';
 import Space from '../entities/Space';
 import { fetchScores, gotScores } from '../utils/scoring';
-import menuButton from '../../dist/assets/images/ui/menuButton.png';
-import menuButtonHover from '../../dist/assets/images/ui/menuButtonHover.png';
+import menuButton from '../assets/images/ui/menuButton.png';
+import menuButtonHover from '../assets/images/ui/menuButtonHover.png';
 import { appAlert } from '../utils/helpers';
+import space from '../assets/images/space.png'
 
 export default class LeadersBoardScene extends Phaser.Scene {
   constructor() {
@@ -13,7 +14,7 @@ export default class LeadersBoardScene extends Phaser.Scene {
   preload() {
     this.load.image('menuButton', menuButton);
     this.load.image('menuButtonHover', menuButtonHover);
-    this.load.image('space', '../../dist/assets/images/space.png');
+    this.load.image('space', space);
 
     fetchScores(gotScores, appAlert, this);
   }

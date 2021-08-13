@@ -16,15 +16,16 @@ import {
 
 
 
-import laserEnemy from '../../dist/assets/images/ui/laserEnemy.png';
-import holoShip from '../../dist/assets/images/ui/boldEnemy.png';
-import playerLaser from '../../dist/assets/images/ui/laserPlayer.png';
-import explosionAlien from '../../dist/assets/audio/explosionAlien.wav';
-import laser from '../../dist/assets/audio/laser.wav';
-import playerShip from '../../dist/assets/images/ui/playerShip.png';
-import tracerShip from '../../dist/assets/images/ui/tracerEnemy.png';
-import enemyShip from '../../dist/assets/images/ui/basicEnemy.png';
-
+import laserEnemy from '../assets/images/ui/laserEnemy.png';
+import holoShip from '../assets/images/ui/boldEnemy.png';
+import playerLaser from '../assets/images/ui/laserPlayer.png';
+import explosionAlien from '../assets/audio/explosionAlien.wav';
+import laser from '../assets/audio/laser.wav';
+import playerShip from '../assets/images/ui/playerShip.png';
+import tracerShip from '../assets/images/ui/tracerEnemy.png';
+import enemyShip from '../assets/images/ui/basicEnemy.png';
+import space from '../assets/images/space.png'
+import explosion from '../assets/images/ui/explosion.png'
 class GameScene extends Phaser.Scene {
     constructor() {
         super({ key: 'BattleScene' });
@@ -34,9 +35,9 @@ class GameScene extends Phaser.Scene {
     }
 
     preload() {
-        this.load.image('space', '../../dist/assets/images/space.png');
+        this.load.image('space', space);
 
-        this.load.spritesheet('explosion', '../../dist/assets/images/ui/explosion.png', {
+        this.load.spritesheet('explosion', explosion, {
             frameWidth: 32,
             frameHeight: 32,
         });
