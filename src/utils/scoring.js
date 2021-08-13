@@ -29,7 +29,6 @@ const showSaved = (data) => {
 const renderInput = () => {
   let inputDiv = document.getElementById('inputDiv');
   if (inputDiv) return;
-  console.log('aaa');
   inputDiv = create('div');
   inputDiv.classList.add('absolute', 'w-screen', 'h-screen', 'z-10', 'flex', 'flex-col', 'bg-black', 'items-center', 'justify-center')
   inputDiv.id = 'inputDiv';
