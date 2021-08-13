@@ -8,7 +8,7 @@ An infinit space shooter game, designed based on a meme. Enemies appear at the t
 
 ### Live Demo
 
-[Live Demo]()
+[Live Demo](https://omar-labana.github.io/koko/)
 
 ### Instructions
 
