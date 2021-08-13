@@ -62,3 +62,111 @@ const renderInput = () => {
   document.body.appendChild(inputDiv);
 }
 
+const renderScore = () => {
+  let scoresDiv = document.getElementById('scoresDiv');
+  if (scoresDiv) {
+    const scoreText = document.getElementById('scoreText');
+    scoreText.innerHTML = 'Score : 0';
+    return;
+  }
+  scoresDiv = create('div');
+  scoresDiv.id = 'scoresDiv';
+
+  const scoreText = create('label');
+  scoreText.id = 'scoreText';
+  scoreText.innerHTML = 'Score : '.concat(window.game.points.toString());
+
+  scoresDiv.appendChild(scoreText);
+  document.body.appendChild(scoresDiv);
+}
+
+const renderHealth = () => {
+  let HealthDiv = document.getElementById('HealthDiv');
+  if (HealthDiv) {
+    const HealthText = document.getElementById('HealthText');
+    HealthText.innerHTML = 'health : '.concat(window.game.health).concat('%');
+    return;
+  }
+  HealthDiv = create('div');
+  HealthDiv.id = 'HealthDiv';
+
+  const HealthText = create('label');
+  HealthText.id = 'HealthText';
+  HealthText.innerHTML = 'health : '.concat(window.game.health).concat('%');
+
+  HealthDiv.appendChild(HealthText);
+  document.body.appendChild(HealthDiv);
+}
+
+const addPoints = (game, points) => {
+  const newPoints = game.points + points;
+  return newPoints;
+}
+
+const renderPoints = () => {
+  const scoreText = document.getElementById('scoreText');
+  if (scoreText) scoreText.innerHTML = 'Score : '.concat(window.game.points.toString());
+}
+
+const checkScore = () => {
+  if (window.game.points >= 0) {
+    if (window.game.playerName === '') {
+      renderInput();
+    } else if (window.game.points > 0) {
+      saveScore(showSaved, 1, window.game.playerName, window.game.points);
+    }
+  }
+}
+
+
+// TODO: Fix call back error
+const fetchScores = async (callBack, errorCallBack, scene) => {
+  const url = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/sHO7yOclRItalZudkjtg/scores';
+
+  await fetch(url)
+    .then((response) => response.json())
+    .then((data) => callBack(data, scene))
+    .catch((err) => errorCallBack('Error', err));
+}
+
+const renderScoreData = (scene, scoreData, yPos) => {
+  const tcolor = scoreData.user === window.game.playerName ? 'yellow' : '#ffffff';
+  scene.add.text(100, yPos, scoreData.user, {
+    fontFamily: 'monospace',
+    fontSize: 22,
+    color: tcolor,
+    align: 'left',
+  });
+  scene.add.text(280, yPos, scoreData.score, {
+    fontFamily: 'monospace',
+    fontSize: 22,
+    color: tcolor,
+    align: 'right',
+    fixedWidth: 100,
+  });
+}
+
+const gotScores = (data, scene) => {
+  const { result } = data;
+  const rsort = result.sort((a, b) => b.score - a.score);
+  let yPos = 100;
+  const players = [];
+  for (let index = 0; index < rsort.length; index += 1) {
+    const element = rsort[index];
+    if (!players.includes(element.user)) {
+      players.push(element.user);
+      renderScoreData(scene, element, yPos);
+      yPos += 30;
+      if (players.length > 9) break;
+    }
+  }
+}
+
+
+export {
+  saveScore, showSaved, renderInput, renderScore, renderHealth
+}
+
+export {
+  addPoints, renderPoints, checkScore, fetchScores, renderScoreData, gotScores
+}
