@@ -8,7 +8,7 @@ An infinit space shooter game, designed based on a meme. Enemies appear at the t
 
 ### Live Demo
 
-[Live Demo](https://omar-labana.github.io/koko/)
+You can play the game here [Live Demo](https://omar-labana.github.io/koko/).
 
 ### Instructions
 
@@ -63,7 +63,7 @@ Use "npm run-script " followed by any of the following commands:
 
 ## 👤 Author
 
-👤 **Sunday Uche Ezeilo**
+👤 **Omar Labana**
 
 - Github: [@omarlabana](https://github.com/omar-labana)
 - Twitter: [@panda4cs](https://twitter.com/panda4cs)
