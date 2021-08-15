@@ -27,7 +27,23 @@ If you want to install the project follow these instructions:
 - Open 'localhost:8080/dist' in your browser
 - Start shooting!
 
-### How to play
+### Characters used and Game design
+#### characters
+- Swole Doge (Your character) ![Swole Doge](./src/assets/images/ui/playerShip.png)
+- Doge (Your basic enemy) ![Swole Doge](./src/assets/images/ui/basicEnemy.png)
+- Walter (Big dog with a bold smile) ![Swole Doge](./src/assets/images/ui/boldEnemy.png)
+- Cheems (Will run after you) ![Swole Doge](./src/assets/images/ui/fastEnemy.png)
+#### How to play
+- Click on play.
+![screenshot](./docs/screenshot.png)
+- User the arrow keys to move to the corresponding direction, use spacebar to shoot. 
+![screenshot](./docs/screenshot2.png)
+- After losing all of you health points a credit screen will appear you can add your name or click cancel if you don't want your name to appear in leaderboards.
+![screenshot](./docs/screenshot3.png)
+- You can restart the game with full health points and a score of 0,
+![screenshot](./docs/screenshot4.png)
+- If you submitted your name it will appear in the leaderboards.
+![screenshot](./docs/screenshot5.png)
 
 You only need to press your arrow keys to move you character and use spacebar to shoot the enemies.
 
