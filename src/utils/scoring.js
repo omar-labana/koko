@@ -122,7 +122,6 @@ const addPoints = (game, points) => {
   return newPoints;
 };
 
-
 const checkScore = () => {
   if (window.game.points >= 0) {
     if (window.game.playerName === '') {
@@ -143,7 +142,6 @@ const fetchScores = async (callBack, errorCallBack, scene) => {
     .catch((err) => errorCallBack('Error', err));
 };
 
-
 const gotScores = (data, scene) => {
   const { result } = data;
   const rsort = result.sort((a, b) => b.score - a.score);
@@ -160,7 +158,7 @@ const gotScores = (data, scene) => {
       if (players.length > 9) break;
     }
   }
-  return rsort
+  return rsort;
 };
 
 export {
