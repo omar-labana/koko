@@ -95,16 +95,33 @@ const renderHealth = () => {
   HealthDiv.appendChild(HealthText);
   document.body.appendChild(HealthDiv);
 };
+const renderPoints = () => {
+  const scoreText = document.getElementById('scoreText');
+  if (scoreText) scoreText.innerHTML = 'Score : '.concat(window.game.points.toString());
+};
+
+const renderScoreData = (scene, scoreData, yPos) => {
+  const tcolor = scoreData.user === window.game.playerName ? 'yellow' : '#ffffff';
+  scene.add.text(100, yPos, scoreData.user, {
+    fontFamily: 'monospace',
+    fontSize: 22,
+    color: tcolor,
+    align: 'left',
+  });
+  scene.add.text(280, yPos, scoreData.score, {
+    fontFamily: 'monospace',
+    fontSize: 22,
+    color: tcolor,
+    align: 'right',
+    fixedWidth: 100,
+  });
+};
 
 const addPoints = (game, points) => {
   const newPoints = game.points + points;
   return newPoints;
 };
 
-const renderPoints = () => {
-  const scoreText = document.getElementById('scoreText');
-  if (scoreText) scoreText.innerHTML = 'Score : '.concat(window.game.points.toString());
-};
 
 const checkScore = () => {
   if (window.game.points >= 0) {
@@ -126,22 +143,6 @@ const fetchScores = async (callBack, errorCallBack, scene) => {
     .catch((err) => errorCallBack('Error', err));
 };
 
-const renderScoreData = (scene, scoreData, yPos) => {
-  const tcolor = scoreData.user === window.game.playerName ? 'yellow' : '#ffffff';
-  scene.add.text(100, yPos, scoreData.user, {
-    fontFamily: 'monospace',
-    fontSize: 22,
-    color: tcolor,
-    align: 'left',
-  });
-  scene.add.text(280, yPos, scoreData.score, {
-    fontFamily: 'monospace',
-    fontSize: 22,
-    color: tcolor,
-    align: 'right',
-    fixedWidth: 100,
-  });
-};
 
 const gotScores = (data, scene) => {
   const { result } = data;
@@ -152,11 +153,14 @@ const gotScores = (data, scene) => {
     const element = rsort[index];
     if (!players.includes(element.user)) {
       players.push(element.user);
-      renderScoreData(scene, element, yPos);
+      if (scene) {
+        renderScoreData(scene, element, yPos);
+      }
       yPos += 30;
       if (players.length > 9) break;
     }
   }
+  return rsort
 };
 
 export {
